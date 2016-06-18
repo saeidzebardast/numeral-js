@@ -1,0 +1,157 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="./numeral-import.html">
+
+<!--
+A Polymer element for formatting and manipulating numbers using Numeral.js.
+
+Example:
+
+    <numeral-js
+      number="10000" format="0,0" print></numeral-js>
+
+Example:
+
+    <numeral-js
+      number="10000" format="0,0"
+      output="{{output}}"></numeral-js>
+
+@demo demo/index.html
+-->
+
+<dom-module id="numeral-js">
+  <template>
+    <template is="dom-if" if="[[print]]">
+      [[output]]
+    </template>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'numeral-js',
+
+      properties: {
+        /**
+         * Input number
+         */
+        number: {
+          type: Number,
+          observer: '_numberChanged'
+        },
+
+        /**
+         * Formatted manipulated output
+         */
+        output: {
+          type: String,
+          notify: true
+        },
+
+        /**
+         * Print output
+         */
+        print: {
+          type: Boolean,
+          value: false
+        },
+
+        /**
+         * Format of output.
+         */
+        format: {
+          type: String,
+          observer: '_formatChanged'
+        },
+
+        /**
+         * Custom Zero Formatting. Set a custom output when formatting numerals with a value of 0.
+         */
+        zeroFormat: {
+          type: String,
+          observer: '_zeroFormatChanged'
+        },
+
+        /**
+         * Un-format the value
+         */
+        unformat: {
+          type: String,
+          observer: '_unformatChanged'
+        },
+
+        /**
+         * The add function will be executed with the given number to this parameter.
+         */
+        add: {
+          type: Number,
+          observer: '_add'
+        },
+
+        /**
+         * The subtract function will be executed with the given number to this parameter.
+         */
+        subtract: {
+          type: Number,
+          observer: '_subtract'
+        },
+
+        /**
+         * The multiply function will be executed with the given number to this parameter.
+         */
+        multiply: {
+          type: Number,
+          observer: '_multiply'
+        },
+
+        /**
+         * The divide function will be executed with the given number to this parameter.
+         */
+        divide: {
+          type: Number,
+          observer: '_divide'
+        }
+      },
+
+      _numberChanged: function () {
+        this._format();
+      },
+
+      _formatChanged: function () {
+        this._format();
+      },
+
+      _format() {
+        if (this.format) {
+          this.set('output', numeral(this.number).format(this.format));
+        } else {
+          this.set('output', this.number);
+        }
+      },
+
+      _zeroFormatChanged: function () {
+        numeral.zeroFormat(this.zeroFormat);
+        this._format();
+      },
+
+      _unformatChanged: function () {
+        this.set('output', numeral().unformat(this.unformat));
+      },
+
+      _add: function () {
+        this.set('number', numeral(this.number).add(this.add).value());
+      },
+
+      _subtract: function () {
+        this.set('number', numeral(this.number).subtract(this.subtract).value());
+      },
+
+      _multiply: function () {
+        this.set('number', numeral(this.number).multiply(this.multiply).value());
+      },
+
+      _divide: function () {
+        this.set('number', numeral(this.number).divide(this.divide).value());
+      }
+    });
+  </script>
+</dom-module>
