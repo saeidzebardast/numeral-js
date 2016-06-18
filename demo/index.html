@@ -1,0 +1,346 @@
+<!doctype html>
+<html>
+<head>
+  <title>numeral-js demo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+
+  <link rel="import" href="../numeral-js.html">
+
+  <style is="custom-style" include="demo-pages-shared-styles">
+  </style>
+</head>
+<body>
+
+<h3>Examples of
+  <code>&lt;numeral-js&gt;</code>:</h3>
+
+<div class="vertical-section-container centered">
+  <h3>Format and print</h3>
+  <demo-snippet>
+    <template>
+      <numeral-js number="10000" format="0,0.0000" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="10000.23" format="0,0" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="10000.23" format="+0,0" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="-10000" format="0,0.0" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="10000.1234" format="0.000" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="10000.1234" format="0[.]00000" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="-10000" format="(0,0.0000)" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="-0.23" format=".00" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="-0.23" format="(.00)" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="0.23" format="0.00000" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="0.23" format="0.0[0000]" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="1230974" format="0.0a" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="1460" format="0 a" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="-104000" format="0a" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="1" format="0o" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="52" format="0o" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="23" format="0o" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="100" format="0o" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+</div>
+
+<div class="vertical-section-container centered">
+  <h3>Currency</h3>
+  <demo-snippet>
+    <template>
+      <numeral-js number="1000.234" format="$0,0.00" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="1000.2" format="0,0[.]00 $" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="1001" format="$ 0,0[.]00" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="-1000.234" format="($0,0)" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="-1000.234" format="$0.00" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="1230974" format="($ 0.00 a)" print></numeral-js>
+    </template>
+  </demo-snippet>
+</div>
+
+<div class="vertical-section-container centered">
+  <h3>Bytes</h3>
+  <demo-snippet>
+    <template>
+      <numeral-js number="100" format="0b" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="2048" format="0 b" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="7884486213" format="0.0b" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="3467479682787" format="0.000 b" print></numeral-js>
+    </template>
+  </demo-snippet>
+</div>
+
+
+<div class="vertical-section-container centered">
+  <h3>Percentages</h3>
+  <demo-snippet>
+    <template>
+      <numeral-js number="1" format="0%" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="0.974878234" format="0.000%" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="-0.43" format="0 %" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="0.43" format="(0.000 %)" print></numeral-js>
+    </template>
+  </demo-snippet>
+</div>
+
+
+<div class="vertical-section-container centered">
+  <h3>Time</h3>
+  <demo-snippet>
+    <template>
+      <numeral-js number="25" format="00:00:00" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="238" format="00:00:00" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="63846" format="00:00:00" print></numeral-js>
+    </template>
+  </demo-snippet>
+</div>
+
+
+<div class="vertical-section-container centered">
+  <h3>Unformat</h3>
+  <demo-snippet>
+    <template>
+      <numeral-js unformat="10,000.123" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js unformat="0.12345" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js unformat="1.23m" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js unformat="23rd" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js unformat="$10,000.00" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js unformat="100B" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js unformat="3.154TB" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js unformat="-76%" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js unformat="2:23:57" print></numeral-js>
+    </template>
+  </demo-snippet>
+</div>
+
+
+<div class="vertical-section-container centered">
+  <h3>Manipulate</h3>
+  <demo-snippet>
+    <template>
+      <numeral-js number="1000" add="100" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="1100" subtract="100" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="1000" multiply="100" print></numeral-js>
+    </template>
+  </demo-snippet>
+
+  <demo-snippet>
+    <template>
+      <numeral-js number="100000" divide="100" print></numeral-js>
+    </template>
+  </demo-snippet>
+</div>
+
+
+<div class="vertical-section-container centered">
+  <h3>Custom Zero Formatting</h3>
+  <demo-snippet>
+    <template>
+      <numeral-js number="0" zero-format="N/A" format="0,0" print></numeral-js>
+    </template>
+  </demo-snippet>
+</div>
+</body>
+</html>
