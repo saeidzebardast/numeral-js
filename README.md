@@ -1,4 +1,4 @@
-# &lt;numeral-js&gt; [![Build Status](https://travis-ci.org/saeidzebardast/numeral-js.svg?branch=master)](https://travis-ci.org/saeidzebardast/numeral-js)
+# &lt;numeral-js&gt;
 
 A [Polymer](https://www.polymer-project.org) for formatting and manipulating numbers using [Numeral.js](http://numeraljs.com/).
 
