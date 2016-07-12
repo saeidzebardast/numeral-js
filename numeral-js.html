@@ -44,6 +44,7 @@ Example:
          */
         output: {
           type: String,
+          readOnly: true,
           notify: true
         },
 
@@ -122,9 +123,9 @@ Example:
 
       _format() {
         if (this.format) {
-          this.set('output', numeral(this.number).format(this.format));
+          this._setOutput(numeral(this.number).format(this.format));
         } else {
-          this.set('output', this.number);
+          this._setOutput(this.number);
         }
       },
 
@@ -134,7 +135,7 @@ Example:
       },
 
       _unformatChanged: function () {
-        this.set('output', numeral().unformat(this.unformat));
+        this._setOutput(numeral().unformat(this.unformat));
       },
 
       _add: function () {
