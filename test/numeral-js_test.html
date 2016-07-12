@@ -26,6 +26,204 @@
           assert.equal(element.is, 'numeral-js');
         });
 
+        test('Format Number 0,0.0000', function() {
+          let element = fixture('basic');
+          element.set('number', 10000);
+          element.set('format', '0,0.0000');
+          assert.equal(element.output, '10,000.0000');
+        });
+
+        test('Format Number 0,0', function() {
+          let element = fixture('basic');
+          element.set('number', 10000.23);
+          element.set('format', '0,0');
+          assert.equal(element.output, '10,000');
+        });
+
+        test('Format Number 0,0.0', function() {
+          let element = fixture('basic');
+          element.set('number', -10000);
+          element.set('format', '0,0.0');
+          assert.equal(element.output, '-10,000.0');
+        });
+
+        test('Format Number 0.000', function() {
+          let element = fixture('basic');
+          element.set('number', 10000.1234);
+          element.set('format', '0.000');
+          assert.equal(element.output, '10000.123');
+        });
+
+        test('Format Number 0[.]00000', function() {
+          let element = fixture('basic');
+          element.set('number', 10000.1234);
+          element.set('format', '0[.]00000');
+          assert.equal(element.output, '10000.12340');
+        });
+
+        test('Format Number (0,0.0000)', function() {
+          let element = fixture('basic');
+          element.set('number', -10000);
+          element.set('format', '(0,0.0000)');
+          assert.equal(element.output, '(10,000.0000)');
+        });
+
+        test('Format Number -0.23', function() {
+          let element = fixture('basic');
+          element.set('number', -0.23);
+          element.set('format', '.00');
+          assert.equal(element.output, '-.23');
+        });
+
+        test('Format Number (.00)', function() {
+          let element = fixture('basic');
+          element.set('number', -0.23);
+          element.set('format', '(.00)');
+          assert.equal(element.output, '(.23)');
+        });
+
+        test('Format Number 0.00000', function() {
+          let element = fixture('basic');
+          element.set('number', 0.23);
+          element.set('format', '0.00000');
+          assert.equal(element.output, '0.23000');
+        });
+
+        test('Format Number 0.0[0000]', function() {
+          let element = fixture('basic');
+          element.set('number', 0.23);
+          element.set('format', '0.0[0000]');
+          assert.equal(element.output, '0.23');
+        });
+
+        test('Format Number 0a', function() {
+          let element = fixture('basic');
+          element.set('number', -104000);
+          element.set('format', '0a');
+          assert.equal(element.output, '-104k');
+        });
+
+        test('Format Number 0o', function() {
+          let element = fixture('basic');
+          element.set('number', 1);
+          element.set('format', '0o');
+          assert.equal(element.output, '1st');
+
+          element.set('number', 52);
+          assert.equal(element.output, '52nd');
+
+          element.set('number', 23);
+          assert.equal(element.output, '23rd');
+
+          element.set('number', 100);
+          assert.equal(element.output, '100th');
+        });
+
+        test('Format Currency $0,0.00', function() {
+          let element = fixture('basic');
+          element.set('number', 1000.234);
+          element.set('format', '$0,0.00');
+          assert.equal(element.output, '$1,000.23');
+        });
+
+        test('Format Currency 0,0[.]00 $', function() {
+          let element = fixture('basic');
+          element.set('number', 1000.2);
+          element.set('format', '0,0[.]00 $');
+          assert.equal(element.output, '1,000.20 $');
+        });
+
+        test('Format Bytes 0b', function() {
+          let element = fixture('basic');
+          element.set('number', 100);
+          element.set('format', '0b');
+          assert.equal(element.output, '100B');
+        });
+
+        test('Format Bytes 0 b', function() {
+          let element = fixture('basic');
+          element.set('number', 2048);
+          element.set('format', '0 b');
+          assert.equal(element.output, '2 KB');
+        });
+
+        test('Format Bytes 0.0b', function() {
+          let element = fixture('basic');
+          element.set('number', 7884486213);
+          element.set('format', '0.0b');
+          assert.equal(element.output, '7.3GB');
+        });
+
+        test('Format Percentages 0%', function() {
+          let element = fixture('basic');
+          element.set('number', 1);
+          element.set('format', '0%');
+          assert.equal(element.output, '100%');
+        });
+
+        test('Format Percentages 0.000%', function() {
+          let element = fixture('basic');
+          element.set('number', 0.974878234);
+          element.set('format', '0.000%');
+          assert.equal(element.output, '97.488%');
+        });
+
+        test('Format Percentages (0.000 %)', function() {
+          let element = fixture('basic');
+          element.set('number', 0.43);
+          element.set('format', '(0.000 %)');
+          assert.equal(element.output, '43.000 %');
+        });
+
+        test('Format Time 00:00:00', function() {
+          let element = fixture('basic');
+          element.set('number', 25);
+          element.set('format', '00:00:00');
+          assert.equal(element.output, '0:00:25');
+
+          element.set('number', 63846);
+          assert.equal(element.output, '17:44:06');
+        });
+
+        test('Un-format', function() {
+          let element = fixture('basic');
+          element.set('unformat', '10,000.123');
+          assert.equal(element.output, '10000.123');
+
+          element.set('unformat', '0.12345');
+          assert.equal(element.output, '0.12345');
+
+          element.set('unformat', '1.23m');
+          assert.equal(element.output, '1230000');
+        });
+
+        test('Manipulate, add', function() {
+          let element = fixture('basic');
+          element.set('number', '1000');
+          element.set('add', '100');
+          assert.equal(element.output, '1100');
+        });
+
+        test('Manipulate, subtract', function() {
+          let element = fixture('basic');
+          element.set('number', '1100');
+          element.set('subtract', '100');
+          assert.equal(element.output, '1000');
+        });
+
+        test('Manipulate, multiply', function() {
+          let element = fixture('basic');
+          element.set('number', '1000');
+          element.set('multiply', '100');
+          assert.equal(element.output, '100000');
+        });
+
+        test('Manipulate, divide', function() {
+          let element = fixture('basic');
+          element.set('number', '100000');
+          element.set('divide', '100');
+          assert.equal(element.output, '1000');
+        });
       });
     </script>
   </body>
