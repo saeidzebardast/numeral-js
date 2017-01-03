@@ -121,7 +121,7 @@ Example:
         this._format();
       },
 
-      _format() {
+      _format: function () {
         if (this.format) {
           this._setOutput(numeral(this.number).format(this.format));
         } else {
