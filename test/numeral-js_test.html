@@ -133,25 +133,25 @@
           assert.equal(element.output, '1,000.20 $');
         });
 
-        test('Format Bytes 0b', function() {
+        test('Format Bytes 0ib', function() {
           var element = fixture('basic');
           element.set('number', 100);
-          element.set('format', '0b');
+          element.set('format', '0ib');
           assert.equal(element.output, '100B');
         });
 
-        test('Format Bytes 0 b', function() {
+        test('Format Bytes 0 ib', function() {
           var element = fixture('basic');
           element.set('number', 2048);
-          element.set('format', '0 b');
-          assert.equal(element.output, '2 KB');
+          element.set('format', '0 ib');
+          assert.equal(element.output, '2 KiB');
         });
 
-        test('Format Bytes 0.0b', function() {
+        test('Format Bytes 0.0ib', function() {
           var element = fixture('basic');
           element.set('number', 7884486213);
-          element.set('format', '0.0b');
-          assert.equal(element.output, '7.3GB');
+          element.set('format', '0.0ib');
+          assert.equal(element.output, '7.3GiB');
         });
 
         test('Format Percentages 0%', function() {

@@ -135,7 +135,7 @@ Example:
       },
 
       _unformatChanged: function () {
-        this._setOutput(numeral().unformat(this.unformat));
+        this._setOutput(numeral(this.unformat).value());
       },
 
       _add: function () {
